@@ -1,0 +1,30 @@
+{
+  "name": "latarnia-pamieci",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vue-tsc -b && vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "gsap": "^3.13.0",
+    "phaser": "^3.90.0",
+    "pixi.js": "^8.10.1",
+    "sql.js": "^1.15.0",
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.11",
+    "@types/sql.js": "^1.4.11",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "tailwindcss": "^4.1.11",
+    "typescript": "~5.7.2",
+    "vite": "^6.1.0",
+    "vitest": "^5.0.5",
+    "vue-tsc": "^2.2.0"
+  }
+}
