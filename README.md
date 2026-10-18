@@ -1,4 +1,4 @@
-# Latarnia pamięci / The Memory Lighthouse / El faro de la memoria
+# Adventure Scandalist
 
 Autorska, krótka gra przygodowa typu top-down zbudowana wokół assetów znajdujących się w katalogu `Public`. Gra opowiada o Mirze, która szuka trzech wspomnień zaginionych na wyspie i musi zanieść je z powrotem do obozu, aby ponownie zapalić latarnię.
 
