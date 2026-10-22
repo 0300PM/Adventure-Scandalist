@@ -1,14 +1,18 @@
 import { Inventory } from './inventory'
 import type { Point } from './core'
+import type { WorldRegion } from './world'
 
 export type Collectible = {
   id: string
+  region?: WorldRegion
   itemId: string
   x: number
   y: number
   quantity: number
   maxStack: number
   collected: boolean
+  requiredTool?: 'axe_tool' | 'pickaxe_tool'
+  unlockAfter?: 'stone-axe' | 'lean-to' | 'stone-pick' | 'hammer'
 }
 
 export const collectNearbyItem = (
@@ -16,6 +20,7 @@ export const collectNearbyItem = (
   collectibles: Collectible[],
   radius: number,
   inventory: Inventory,
+  quantityFor: (collectible: Collectible) => number = (collectible) => collectible.quantity,
 ): Collectible | null => {
   const nearest = collectibles.reduce<Collectible | null>((selected, collectible) => {
     if (collectible.collected) return selected
@@ -25,7 +30,9 @@ export const collectNearbyItem = (
     return selected
   }, null)
 
-  if (!nearest || inventory.add(nearest.itemId, nearest.quantity, nearest.maxStack) !== nearest.quantity) return null
+  if (!nearest) return null
+  const quantity = quantityFor(nearest)
+  if (inventory.add(nearest.itemId, quantity, nearest.maxStack) !== quantity) return null
   nearest.collected = true
   return nearest
 }

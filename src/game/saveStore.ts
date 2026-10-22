@@ -5,6 +5,7 @@ import {
   defaultPreferences,
   emptySessions,
   isGameSession,
+  normalizePreferences,
   parseSaveBackupText,
   readSessions,
   SESSION_STORAGE_KEY,
@@ -72,7 +73,7 @@ const readPreferencesFromDatabase = (database: SqlDatabase): GamePreferences => 
   if (typeof raw !== 'string') return defaultPreferences()
   try {
     const parsed: unknown = JSON.parse(raw)
-    if (parsed && typeof parsed === 'object' && ['pl', 'en', 'es'].includes((parsed as GamePreferences).language)) return parsed as GamePreferences
+    if (parsed && typeof parsed === 'object' && ['pl', 'en', 'es'].includes((parsed as GamePreferences).language)) return normalizePreferences(parsed as Partial<GamePreferences>)
   } catch {
     return defaultPreferences()
   }

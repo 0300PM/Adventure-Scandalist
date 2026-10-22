@@ -37,11 +37,12 @@ describe('world collision', () => {
     expect(result.y).toBe(50)
   })
 
-  it('slides along a wall when the other axis remains open', () => {
+  it('stops diagonal movement at a wall without sliding along it', () => {
     const result = moveWithCollisions({ x: 20, y: 30 }, { x: 30, y: 30 }, 2, island, [wall], bounds)
 
     expect(result.x).toBeLessThan(wall.left - 2)
-    expect(result.y).toBeGreaterThan(55)
+    expect(result.y).toBeLessThan(50)
+    expect(result.x - 20).toBeCloseTo(result.y - 30, 0)
   })
 
   it('substeps large movement so a thin object cannot be skipped', () => {
