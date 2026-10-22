@@ -9,7 +9,7 @@ defineEmits<{ resume: []; menu: [] }>()
 <template>
   <div class="modal-screen">
     <section class="story-card compact-card" role="dialog" aria-modal="true" :aria-label="t.pauseTitle">
-      <img class="gui-frame" src="/Public/gui/pocket_inv/Sprites/Content/Power Hub/1.png" alt="">
+      <img class="gui-frame" src="/Public/gui/paperUISystem/Sprites/Paper UI Pack/Plain/8 Shop/1.png" alt="">
       <div class="story-content pause-content">
         <span class="story-sigil">Ⅱ</span>
         <p class="story-chapter">{{ t.pauseTitle }}</p>
